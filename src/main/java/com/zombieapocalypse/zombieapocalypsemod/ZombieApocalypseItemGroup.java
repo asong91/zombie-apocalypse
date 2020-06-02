@@ -13,6 +13,6 @@ public class ZombieApocalypseItemGroup extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(ZombieApocalypseItems.zombieapocalypse_item);
+        return new ItemStack(ZombieApocalypseItems.zombieapocalypse_entity_egg);
     }
 }
