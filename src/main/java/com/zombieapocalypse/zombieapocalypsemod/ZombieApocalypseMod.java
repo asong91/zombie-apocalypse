@@ -1,5 +1,6 @@
 package com.zombieapocalypse.zombieapocalypsemod;
 
+import com.zombieapocalypse.zombieapocalypsemod.client.renders.ZombieApocalypseRenderRegistry;
 import com.zombieapocalypse.zombieapocalypsemod.config.Config;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
@@ -45,7 +46,7 @@ public class ZombieApocalypseMod {
 
     private void clientRegistries(final FMLClientSetupEvent event)
     {
-        //TutorialRenderRegistry.registryEntityRenders();
+        ZombieApocalypseRenderRegistry.registryEntityRenders();
         LOGGER.info("clientRegistries method registered.");
     }
 
@@ -55,5 +56,7 @@ public class ZombieApocalypseMod {
         // do something when the server starts
         LOGGER.info("HELLO from server starting");
     }
+
+
 
 }

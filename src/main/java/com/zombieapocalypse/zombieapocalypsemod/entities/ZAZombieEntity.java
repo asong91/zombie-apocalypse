@@ -1,14 +1,15 @@
 package com.zombieapocalypse.zombieapocalypsemod.entities;
 
+import com.zombieapocalypse.zombieapocalypsemod.init.ZombieApocalypseEntities;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.world.World;
 
-public class ZAZombieEntity extends net.minecraft.entity.monster.ZombieEntity {
+public class ZAZombieEntity extends MonsterEntity {
 
-    public ZAZombieEntity(EntityType<? extends ZAZombieEntity> type, World worldIn) {
-        super(type, worldIn);
-
-        //super((EntityType<? extends MonsterEntity>) ZombieApocalypseEntities.zombie_entity, worldIn);
+    public ZAZombieEntity(EntityType<? extends MonsterEntity> type, World worldIn)
+    {
+        super((EntityType<? extends MonsterEntity>) ZombieApocalypseEntities.zombie_entity, worldIn);
     }
 
     /*@Override

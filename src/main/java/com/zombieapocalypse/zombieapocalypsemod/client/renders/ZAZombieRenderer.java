@@ -1,19 +1,23 @@
 package com.zombieapocalypse.zombieapocalypsemod.client.renders;
 
+import com.zombieapocalypse.zombieapocalypsemod.client.models.ZAZombieModel;
 import com.zombieapocalypse.zombieapocalypsemod.entities.ZAZombieEntity;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.model.ZombieModel;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderZAZombie extends MobRenderer<ZAZombieEntity, ZAZombieModel> {
+@OnlyIn(Dist.CLIENT)
+public class ZAZombieRenderer extends MobRenderer<ZAZombieEntity, ZAZombieModel> {
 
     public static final ResourceLocation texture = new ResourceLocation("minecraft:textures/entity/zombie/zombie.png");
 
-    public RenderZAZombie(EntityRendererManager renderManagerIn, ZAZombieModel entityModelIn, float shadowSizeIn) {
-        super(renderManagerIn, entityModelIn, shadowSizeIn);
+
+    public ZAZombieRenderer(EntityRendererManager manager) {
+        super(manager, new ZAZombieModel(1.0f, true), 0f);
     }
 
 
@@ -22,12 +26,12 @@ public class RenderZAZombie extends MobRenderer<ZAZombieEntity, ZAZombieModel> {
         return texture;
     }
 
-    public static class RenderFactory implements IRenderFactory<ZAZombieEntity>
-    {
+    public static class RenderFactory implements IRenderFactory<ZAZombieEntity> {
+
         @Override
         public EntityRenderer<? super ZAZombieEntity> createRenderFor(EntityRendererManager manager)
         {
-            return new RenderZAZombie(manager, new ZAZombieModel(1.0f, true), 1.0f);
+            return new ZAZombieRenderer(manager);
         }
 
     }
